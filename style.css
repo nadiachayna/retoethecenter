@@ -78,6 +78,11 @@ nav .nav-bar .fa-bars{
     color: var(--Darkgrayishblue);
     text-decoration: none;
     padding: 10px;
+    transition: 0.5s;
+}
+
+.nav-links li a:hover{
+    color: var(--Orange);
 }
 
 .nav-links li a::before{
