@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+     <!--==================Icon======================-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!--==================Favicon======================-->
+    <link rel="icon" href="./images/favicon-32x32.png" type="image/png"/>
+
+     <!--==================CSS FILE LINK======================-->
+    <link rel="stylesheet" href="style.css">
+
+</head>
+<body>
+
+<nav>
+    <div class="nav-bar">
+      <i class="fa fa-bars" aria-hidden="true"></i>
+
+      <img src="./images/logo.svg" class="logo" alt="">
+
+      <div class="menu">
+         <div class="logo-toggle">
+             <i class="fa fa-times" aria-hidden="true"></i>
+         </div>
+
+          <ul class="nav-links">
+             <li><a href="#">Collections</a></li>
+             <li><a href="#">Men</a></li>
+             <li><a href="#">Women</a></li>
+             <li><a href="#">About</a></li>
+             <li><a href="#">Contact</a></li>
+          </ul>
+     </div>
+     
+      <div class="cart-profile">
+         <img src="./images/icon-cart.svg" width="20px" alt="">
+         <img src="./images/image-avatar.png" class="avatar" width="28px" alt="">
+      </div>
+  </div>
+</nav>
+
+<div class="box-container">
+
+    <div class="box">
+
+        <div class="image-container">
+
+            <div class="big-image">
+                <img src="/images/image-product-1.jpg" alt="">
+            </div>
+
+            <div class="small-image">
+                <img class="active" src="/images/image-product-1.jpg" alt="">
+                <img src="/images/image-product-2.jpg" alt="">
+                <img src="/images/image-product-3.jpg" alt="">
+                <img src="/images/image-product-4.jpg" alt="">
+            </div>
+
+        </div>
+
+        <div class="content">
+            <h4 class="mini_title">SNEAKER COMPANY</h4>
+            <h1 class="title">Fall Limited Edition Sneakers</h1>
+            <p class="paragraph">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they'll withstand everything the weater can offer.</p>
+            <form action="">
+                <div class="quantity_price">
+                    <span class="price"> $125.00 </span>
+                    <button class="offer">50%</button><br>
+                    <span class="offer_price">$250.00</span>
+                </div>
+            </form>
+
+            <div class="box_shop">
+               <div class="wrapper">
+                 <span class="minus">-</span>
+                 <span class="num">0</span>
+                 <span class="plus">+</span>
+               </div>
+               <div class="btn">
+                   <span class="btn__content"><i class="fa fa-shopping-cart" aria-hidden="true"></i>  Add to cart</span>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>    
+
+
+<!--=============Script============-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+<script>
+
+$(document).ready(function(){
+
+    $('.small-image img').click(function(){
+
+        $(this).addClass('active').siblings().removeClass('active');
+
+        let image = $(this).attr('src');
+        $('.big-image img').attr('src',image);
+
+    });
+
+});
+
+//counter
+const plus = document.querySelector(".plus"),
+    minus = document.querySelector(".minus"),
+    num = document.querySelector(".num");
+    let a = 0;
+    plus.addEventListener("click", ()=>{
+      a++;
+      num.innerText = a;
+    });
+
+    minus.addEventListener("click", ()=>{
+      if(a > 0){
+        a--;
+        num.innerText = a;
+      }
+    });
+
+//nav
+const nav = document.querySelector("nav"),
+      sidebarOpen = document.querySelector(".fa-bars"),
+      siderbarClose = document.querySelector(".fa-times");
+
+    
+//js code to toggle sidebar
+sidebarOpen.addEventListener("click" , () =>{
+    nav.classList.add("active");
+});
+
+siderbarClose.addEventListener("click" , e =>{
+   nav.classList.remove("active");
+});
+
+</script>
+
+</body>
+</html>
