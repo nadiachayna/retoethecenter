@@ -50,7 +50,12 @@
         <div class="image-container">
 
             <div class="big-image">
-                <img src="/images/image-product-1.jpg" alt="">
+                <div class="active mySlides1"><img src="/images/image-product-1.jpg" alt=""></div>
+                <div class="active mySlides1"><img src="/images/image-product-2.jpg" alt=""></div>
+                <div class="active mySlides1"><img src="/images/image-product-3.jpg" alt=""></div>
+                <div class="active mySlides1"><img src="/images/image-product-4.jpg" alt=""></div>
+                <a class="next" onclick="plusSlides(1, 0)">&#10095;</a>
+                <a class="prev" onclick="plusSlides(-1, 0)">&#10094;</a>
             </div>
 
             <div class="small-image">
@@ -59,7 +64,7 @@
                 <img src="/images/image-product-3.jpg" alt="">
                 <img src="/images/image-product-4.jpg" alt="">
             </div>
-
+            
         </div>
 
         <div class="content">
@@ -141,6 +146,25 @@ siderbarClose.addEventListener("click" , e =>{
    nav.classList.remove("active");
 });
 
+//slider
+const slideIndex = [1,1];
+const slideId = ["mySlides1"]
+showSlides(1, 0);
+
+function plusSlides(n, no) {
+  showSlides(slideIndex[no] += n, no);
+}
+
+function showSlides(n, no) {
+  let i;
+  let x = document.getElementsByClassName(slideId[no]);
+  if (n > x.length) {slideIndex[no] = 1}    
+  if (n < 1) {slideIndex[no] = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[slideIndex[no]-1].style.display = "block";  
+}
 </script>
 
 </body>
